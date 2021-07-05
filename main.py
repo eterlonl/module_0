@@ -4,6 +4,7 @@ number = np.random.randint(1, 101)  # загадали число
 
 
 def score_game(game_core):
+    """Запускаем игру 1000 раз, чтобы узнать, как быстро игра угадывает число"""
     count_ls = []
     np.random.seed(1)  # фиксируем RANDOM SEED, чтобы ваш эксперимент был воспроизводим!
     random_array = np.random.randint(1, 101, (1000))
@@ -15,9 +16,13 @@ def score_game(game_core):
     return (score)
 
 
+
 def game_core_v2(number):
+    """Сначала устанавливаем любое random число, а потом уменьшаем или увеличиваем
+    его в зависимости от того, больше оно или меньше нужного.
+    Функция принимает загаданное число и возвращает число попыток"""
     count = 1
-    predict = np.random.randint(1, 101)
+    predict = np.random.randint(1, 101)  # генерируем случайное число для сравнения с загаданным
 
     while number != predict:
         count += 1
